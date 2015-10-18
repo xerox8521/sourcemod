@@ -22,9 +22,9 @@ elif builder.target_platform == 'mac':
   binary.compiler.cflags += ['-Wno-deprecated-declarations']
   binary.compiler.postlink += ['-framework', 'CoreServices']
 
-if binary.compiler.vendor == 'gcc' or binary.compiler.vendor == 'clang':
+if binary.compiler.like('gcc'):
   binary.compiler.cxxflags += ['-fno-rtti']
-elif binary.compiler.vendor == 'msvc':
+elif binary.compiler.like('msvc'):
   binary.compiler.cxxflags += ['/GR-']
 
 binary.sources += [

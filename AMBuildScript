@@ -153,7 +153,7 @@ class SMConfig(object):
 
     if cxx.like('gcc'):
       self.configure_gcc(cxx)
-    elif cxx.vendor == 'msvc':
+    elif cxx.like('msvc'):
       self.configure_msvc(cxx)
 
     # Optimizaiton
@@ -218,8 +218,8 @@ class SMConfig(object):
     ]
     cxx.linkflags += ['-m32']
 
-    have_gcc = cxx.vendor == 'gcc'
-    have_clang = cxx.vendor == 'clang'
+    have_gcc = cxx.family == 'gcc'
+    have_clang = cxx.family == 'clang'
     if cxx.version >= 'clang-3.6':
       cxx.cxxflags += ['-Wno-inconsistent-missing-override']
     if have_clang or (cxx.version >= 'gcc-4.6'):
@@ -293,9 +293,9 @@ class SMConfig(object):
   def configure_linux(self, cxx):
     cxx.defines += ['_LINUX', 'POSIX']
     cxx.linkflags += ['-lm']
-    if cxx.vendor == 'gcc':
+    if cxx.family == 'gcc':
       cxx.linkflags += ['-static-libgcc']
-    elif cxx.vendor == 'clang':
+    elif cxx.family == 'clang':
       cxx.linkflags += ['-lgcc_eh']
 
   def configure_mac(self, cxx):
