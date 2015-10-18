@@ -16,9 +16,9 @@ binary.compiler.defines += [
   'SM_LOGIC'
 ]
   
-if builder.target_platform == 'linux':
+if builder.target.platform == 'linux':
   binary.compiler.postlink += ['-lpthread', '-lrt']
-elif builder.target_platform == 'mac':
+elif builder.target.platform == 'mac':
   binary.compiler.cflags += ['-Wno-deprecated-declarations']
   binary.compiler.postlink += ['-framework', 'CoreServices']
 
@@ -82,7 +82,7 @@ binary.sources += [
   'CDataPack.cpp',
   'frame_tasks.cpp',
 ]
-if builder.target_platform == 'windows':
+if builder.target.platform == 'windows':
   binary.sources += ['thread/WinThreads.cpp']
 else:
   binary.sources += ['thread/PosixThreads.cpp']

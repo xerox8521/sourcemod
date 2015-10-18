@@ -6,7 +6,7 @@ if binary.compiler.like('gcc'):
   binary.compiler.cxxflags += ['-fno-rtti']
 elif binary.compiler.like('msvc'):
   binary.compiler.cxxflags += ['/GR-']
-if builder.target_platform == 'windows':
+if builder.target.platform == 'windows':
   binary.compiler.postlink += ['wsock32.lib']
 
 binary.sources += [
