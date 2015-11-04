@@ -720,6 +720,9 @@ HookReturn SDKHooks::Hook(int entity, SDKHookType type, IPluginFunction *callbac
 			case SDKHook_BlockedPost:
 				hookid = SH_ADD_MANUALVPHOOK(Blocked, pEnt, SH_MEMBER(&g_Interface, &SDKHooks::Hook_BlockedPost), true);
 				break;
+			case SDKHook_MAXHOOKS:
+				// This is checked up above.
+				break;
 		}
 
 		vhook.SetHookID(hookid);
