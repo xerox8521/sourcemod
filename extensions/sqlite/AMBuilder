@@ -15,6 +15,7 @@ binary.compiler.defines += [
   'SQLITE_THREADSAFE'
 ]
 if builder.target_platform == 'linux':
+  binary.compiler.cflags += ['-Wno-error=unused-const-variable']
   binary.compiler.postlink += ['-ldl', '-lpthread']
 
 binary.sources += [

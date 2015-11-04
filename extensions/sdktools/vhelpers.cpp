@@ -546,7 +546,7 @@ CON_COMMAND(sm_dump_netprops_xml, "Dumps the networkable property table as an XM
 #endif
 
 	time_t t = g_pSM->GetAdjustedTime();
-	size_t written = strftime(buffer, sizeof(buffer), "%Y/%m/%d", localtime(&t));
+	strftime(buffer, sizeof(buffer), "%Y/%m/%d", localtime(&t));
 
 #if defined SUBPLATFORM_SECURECRT
 	_set_invalid_parameter_handler(handler);
@@ -602,7 +602,7 @@ CON_COMMAND(sm_dump_netprops, "Dumps the networkable property table as a text fi
 #endif
 
 	time_t t = g_pSM->GetAdjustedTime();
-	size_t written = strftime(buffer, sizeof(buffer), "%Y/%m/%d", localtime(&t));
+	strftime(buffer, sizeof(buffer), "%Y/%m/%d", localtime(&t));
 
 #if defined SUBPLATFORM_SECURECRT
 	_set_invalid_parameter_handler(handler);
@@ -743,7 +743,7 @@ CON_COMMAND(sm_dump_classes, "Dumps the class list as a text file")
 #endif
 
 	time_t t = g_pSM->GetAdjustedTime();
-	size_t written = strftime(buffer, sizeof(buffer), "%Y/%m/%d", localtime(&t));
+	strftime(buffer, sizeof(buffer), "%Y/%m/%d", localtime(&t));
 
 #if defined SUBPLATFORM_SECURECRT
 	_set_invalid_parameter_handler(handler);
@@ -907,7 +907,7 @@ CON_COMMAND(sm_dump_datamaps, "Dumps the data map list as a text file")
 #endif
 
 	time_t t = g_pSM->GetAdjustedTime();
-	size_t written = strftime(buffer, sizeof(buffer), "%Y/%m/%d", localtime(&t));
+	strftime(buffer, sizeof(buffer), "%Y/%m/%d", localtime(&t));
 
 #if defined SUBPLATFORM_SECURECRT
 	_set_invalid_parameter_handler(handler);
